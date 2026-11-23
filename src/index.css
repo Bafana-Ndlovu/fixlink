@@ -1,13 +1,38 @@
-/* Base styles. Tailwind and the FixLink design tokens are added in Issue #2. */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import 'tailwindcss';
+
+/*
+  FixLink design system (see docs/designs/README.md).
+  Each colour becomes a Tailwind class, e.g. bg-primary, text-heading, border-success.
+*/
+@theme {
+  --color-primary: #2563eb;      /* Primary Blue: buttons, links */
+  --color-primary-dark: #1e3a8a; /* Deep Blue: headings, footer */
+  --color-accent: #7c3aed;       /* Purple: AI features */
+  --color-accent-light: #ede9fe; /* Light purple backgrounds */
+  --color-surface: #f8fafc;      /* Page background */
+  --color-body: #334155;         /* Body text */
+  --color-success: #16a34a;      /* Verified, completed */
+  --color-warning: #f59e0b;      /* Pending, star ratings */
+  --color-danger: #dc2626;       /* Errors, cancelled */
+
+  --font-heading: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  color: #334155;
-  background: #f8fafc;
+/* Brand gradient for main CTAs and AI features: class="bg-brand-gradient" */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+@layer base {
+  body {
+    @apply bg-surface font-sans text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-semibold text-primary-dark;
+  }
 }
