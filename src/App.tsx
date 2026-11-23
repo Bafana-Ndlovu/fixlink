@@ -6,6 +6,7 @@ import ProviderProfile from './pages/ProviderProfile'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import NotFound from './pages/NotFound'
+import UiKit from './pages/UiKit'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/providers/:id" element={<ProviderProfile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/ui-kit" element={<UiKit />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
