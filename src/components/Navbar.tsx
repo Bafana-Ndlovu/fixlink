@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { cn } from '../lib/cn'
 import Logo from './Logo'
+import NavAuthLinks from './NavAuthLinks'
 
 const links = [
   { label: 'Home', to: '/' },
@@ -45,15 +46,7 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Link to="/login" className={cn(linkClass, 'text-primary-dark')}>
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="bg-brand-gradient rounded-lg px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
-          >
-            Sign Up
-          </Link>
+          <NavAuthLinks />
         </div>
 
         <button
@@ -96,18 +89,7 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="grid grid-cols-2 gap-2">
-            <Link
-              to="/login"
-              className="rounded-lg border border-primary px-4 py-2 text-center text-sm font-medium text-primary"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="bg-brand-gradient rounded-lg px-4 py-2 text-center text-sm font-medium text-white"
-            >
-              Sign Up
-            </Link>
+            <NavAuthLinks mobile />
           </div>
         </div>
       )}
