@@ -1,0 +1,13 @@
+/* Base styles. Tailwind and the FixLink design tokens are added in Issue #2. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #334155;
+  background: #f8fafc;
+}
