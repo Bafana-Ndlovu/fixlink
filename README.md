@@ -50,12 +50,15 @@ UI designs were created in Google Stitch.
 ## Getting started
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/fixlink.git
+git clone https://github.com/Bafana-Ndlovu/fixlink.git
 cd fixlink
 npm install
-cp .env.example .env   # add your Supabase URL and anon key
-npm run dev
+npm run dev            # opens on http://localhost:5173
 ```
+
+Other scripts: `npm run build` (type-check and production build), `npm run lint`, `npm run preview`.
+
+Supabase environment variables are added in Issue #9.
 
 ## Project status
 
