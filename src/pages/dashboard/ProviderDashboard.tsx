@@ -1,5 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../../components/Button'
+import ManageServices from '../../components/ManageServices'
 import Input from '../../components/Input'
 import Spinner from '../../components/Spinner'
 import StatCard from '../../components/StatCard'
@@ -99,6 +101,9 @@ export default function ProviderDashboard() {
           {business.verified ? 'Verified' : 'Verification pending'}
         </span>
       </p>
+      <Link to={`/providers/${business.id}`} className="mt-2 inline-block text-sm font-medium text-primary hover:underline">
+        View my public profile
+      </Link>
 
       <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Total bookings" value={summary.total} />
@@ -145,6 +150,8 @@ export default function ProviderDashboard() {
           </ul>
         )}
       </section>
+
+      <ManageServices providerId={business.id} />
     </div>
   )
 }
