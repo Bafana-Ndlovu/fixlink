@@ -31,3 +31,28 @@ export const statusClass: Record<BookingStatus, string> = {
   completed: 'bg-success/15 text-success',
   cancelled: 'bg-danger/10 text-danger',
 }
+
+export type BookingRequest = {
+  serviceId: string
+  description: string
+  address: string
+  preferredDate: string
+}
+
+/** Checks a booking request before it is sent. `today` is YYYY-MM-DD. */
+export function validateBookingRequest(
+  values: BookingRequest,
+  today: string,
+): Partial<Record<keyof BookingRequest, string>> {
+  const errors: Partial<Record<keyof BookingRequest, string>> = {}
+  if (values.description.trim().length < 10) errors.description = 'Describe the job in at least 10 characters'
+  if (values.address.trim().length < 5) errors.address = 'Enter the address or area where the work is needed'
+  if (values.preferredDate && values.preferredDate < today) errors.preferredDate = 'Choose today or a future date'
+  return errors
+}
+
+/** Today's date as YYYY-MM-DD in the user's own time zone. */
+export function todayIso(now: Date = new Date()): string {
+  const local = new Date(now.getTime() - now.getTimezoneOffset() * 60_000)
+  return local.toISOString().slice(0, 10)
+}

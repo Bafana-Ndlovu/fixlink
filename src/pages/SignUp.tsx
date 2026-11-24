@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import AuthShell from '../components/AuthShell'
 import Button from '../components/Button'
 import Input from '../components/Input'
@@ -16,6 +16,7 @@ const accountTypes: Array<{ value: SignUpValues['role']; title: string; text: st
 export default function SignUp() {
   const { profile } = useAuth()
   const navigate = useNavigate()
+  const [params] = useSearchParams()
 
   const [values, setValues] = useState<SignUpValues>({
     fullName: '',
@@ -23,7 +24,8 @@ export default function SignUp() {
     phone: '',
     password: '',
     confirmPassword: '',
-    role: 'customer',
+    // /signup?role=provider pre-selects the provider account type
+    role: params.get('role') === 'provider' ? 'provider' : 'customer',
     acceptTerms: false,
   })
   const [errors, setErrors] = useState<FieldErrors<SignUpValues>>({})
