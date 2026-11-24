@@ -15,12 +15,11 @@ export default function AuthShell({ title, subtitle, children }: AuthShellProps)
           <p className="text-sm font-medium tracking-wide text-white/80 uppercase">FixLink</p>
           <h2 className="mt-4 text-3xl leading-tight text-white">Trusted local professionals, one click away.</h2>
         </div>
-        <figure className="rounded-2xl bg-white/10 p-6 backdrop-blur">
-          <blockquote className="text-white/95">
-            “FixLink found me a verified electrician in Midrand in 20 minutes.”
-          </blockquote>
-          <figcaption className="mt-3 text-sm text-white/80">Sipho K., Midrand</figcaption>
-        </figure>
+        <div className="rounded-2xl bg-white/10 p-6 backdrop-blur">
+          <p className="text-white/95">
+            Every provider with a Verified badge is checked by our team, and reviews only come from completed bookings.
+          </p>
+        </div>
         <ul className="grid grid-cols-3 gap-3 text-sm text-white/90">
           <li>Verified pros</li>
           <li>Real reviews</li>
