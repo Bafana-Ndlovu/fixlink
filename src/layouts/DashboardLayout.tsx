@@ -38,7 +38,7 @@ export default function DashboardLayout() {
 
   return (
     <div className="flex min-h-screen flex-col bg-surface md:flex-row">
-      <aside className="flex flex-col border-b border-slate-200 bg-white md:w-64 md:border-r md:border-b-0">
+      <aside className="flex flex-col border-b border-slate-200 bg-white md:sticky md:top-0 md:h-screen md:w-64 md:shrink-0 md:border-r md:border-b-0">
         <div className="flex items-center justify-between px-5 py-4 md:block">
           <Logo />
           <span className="rounded-full bg-accent-light px-2.5 py-1 text-xs font-medium text-accent md:mt-3 md:inline-block">

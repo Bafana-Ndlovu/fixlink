@@ -27,7 +27,7 @@ export default function StarRating({
       </span>
       {showValue && <span className="text-sm font-semibold text-primary-dark">{rating.toFixed(1)}</span>}
       {reviewCount !== undefined && (
-        <span className="text-sm text-slate-500">({reviewCount} reviews)</span>
+        <span className="text-sm text-slate-500">({reviewCount} {reviewCount === 1 ? 'review' : 'reviews'})</span>
       )}
     </div>
   )
